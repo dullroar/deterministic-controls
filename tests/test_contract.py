@@ -107,7 +107,8 @@ class CatalogTests(unittest.TestCase):
                 load_catalog(Path(tmp))
 
     def test_default_catalog_loads(self):
-        self.assertEqual(load_catalog(), {})
+        catalog = load_catalog()
+        self.assertTrue({"plans.schema", "plans.graph"} <= set(catalog))
 
     def test_loader_does_not_import_modules(self):
         with tempfile.TemporaryDirectory() as tmp:

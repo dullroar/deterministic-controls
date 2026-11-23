@@ -1,0 +1,7 @@
+id = "plans.schema"
+summary = "Each plan step file has valid front matter, and each plan has goal.md and plan.md."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.plans"
+entry = "schema_entry"

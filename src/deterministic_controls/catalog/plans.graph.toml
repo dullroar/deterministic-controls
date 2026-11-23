@@ -1,0 +1,7 @@
+id = "plans.graph"
+summary = "A plan has no unknown dependency, no cycle, no overlap of touches and no shared serial lane."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.plans"
+entry = "graph_entry"
