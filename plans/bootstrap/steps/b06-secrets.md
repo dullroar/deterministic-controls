@@ -1,6 +1,6 @@
 ---
 id: b06-secrets
-status: pending
+status: done
 depends_on: [b03-self-ci]
 touches:
   - src/deterministic_controls/checks/secrets.py
@@ -16,7 +16,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -p 'test_secrets.py' -v && python3 -m unittest discover -s tests -p 'test_personal_data.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/secret_guard.py --tracked && python3 scripts/check_context.py && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate command of this step passed on 2026-11-23: test_secrets.py, test_personal_data.py, all 100 tests, secret_guard --tracked (0 findings), check_context.py, git diff --check."
 ---
 
 # Port `security.secrets` and `security.personal-data`
