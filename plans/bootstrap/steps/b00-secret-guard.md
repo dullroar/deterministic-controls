@@ -13,9 +13,9 @@ touches:
 lane: none
 tier: light
 gate: python3 -m unittest discover -s tests -p 'test_secret_guard.py' -v && bash scripts/install_hooks.sh --self-test && python3 scripts/secret_guard.py --tracked && grep -q 'secret_guard.py --tracked' .github/workflows/context.yml && grep -q 'secret_guard.py --range' .github/workflows/context.yml && python3 scripts/build_indexes.py --check && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate command of this step passed on 2026-11-23. actions/checkout pinned to v4.4.0 SHA."
+claimed_by: claude cli-default
+claimed_at: "2026-11-23T23:40:44Z"
+evidence: gate passed 2026-11-23 (driver-verified)
 ---
 
 # Install the secret guard, the hooks and the CI job
