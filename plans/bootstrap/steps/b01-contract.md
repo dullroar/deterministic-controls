@@ -1,6 +1,6 @@
 ---
 id: b01-contract
-status: pending
+status: done
 depends_on: [b00-secret-guard]
 touches:
   - pyproject.toml
@@ -14,9 +14,9 @@ touches:
   - plans/bootstrap/steps/b01-contract.md
 lane: none
 gate: python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-23T23:43:15Z"
+evidence: gate passed 2026-11-23 (driver-verified)
 ---
 
 # Build the package skeleton, the CLI, the manifest, the result contract and the catalog loader
