@@ -14,9 +14,9 @@ touches:
   - plans/bootstrap/steps/b06-secrets.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_secrets.py' -v && python3 -m unittest discover -s tests -p 'test_personal_data.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/secret_guard.py --tracked && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate command of this step passed on 2026-11-23: test_secrets.py, test_personal_data.py, all 100 tests, secret_guard --tracked (0 findings), check_context.py, git diff --check."
+claimed_by: claude cli-default
+claimed_at: "2026-11-23T23:52:26Z"
+evidence: gate passed 2026-11-23 (driver-verified)
 ---
 
 # Port `security.secrets` and `security.personal-data`
