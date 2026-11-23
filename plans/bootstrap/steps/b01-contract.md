@@ -1,6 +1,6 @@
 ---
 id: b01-contract
-status: pending
+status: done
 depends_on: [b00-secret-guard]
 touches:
   - pyproject.toml
@@ -16,7 +16,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "gate passed on 2026-11-23: python3 -m unittest discover -s tests -v (63 tests OK) && python3 scripts/check_context.py && git diff --check"
 ---
 
 # Build the package skeleton, the CLI, the manifest, the result contract and the catalog loader
