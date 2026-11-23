@@ -13,9 +13,9 @@ touches:
   - plans/bootstrap/steps/b02-plans-slice.md
 lane: none
 gate: python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate (python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check) passed: 69 tests OK. 2026-11-23."
+claimed_by: claude cli-default
+claimed_at: "2026-11-23T23:48:18Z"
+evidence: gate passed 2026-11-23 (driver-verified)
 ---
 
 # Port the plan checks: `plans.schema` and `plans.graph`
