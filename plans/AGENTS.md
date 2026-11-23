@@ -19,6 +19,8 @@ Read the list. Open only the plans whose "Read me when" line matches your task.
 
 <!-- BEGIN GENERATED INDEX -->
 
+* [bootstrap/plan.md](./bootstrap/plan.md)
+  Read me when: you build or change the deterministic-controls library before release v0.1.0: the CLI, the manifest, the result contract, the checks or the adoption tools.
 * [for-each-plan/plan.md](./for-each-plan/plan.md)
   Read me when: you want to see the format of a plan. (Template only. Copy this folder to start a plan.)
 
