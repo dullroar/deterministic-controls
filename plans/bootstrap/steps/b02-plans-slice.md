@@ -60,4 +60,9 @@ The seed missed one file. b01's `test_default_catalog_loads` asserts that `load_
 
 ## Resume notes
 
-(none)
+Blocked on one gate failure. All work is written. Only one test fails.
+
+- Done: `checks/plans.py`, `checks/__init__.py`, both catalog files, `tests/test_plans.py` and the fixtures in `tests/fixtures/plans/`. `tests/test_plans.py` passes. `check_context.py` and `git diff --check` pass.
+- Blocker: `tests/test_contract.py` (from b01) has `test_default_catalog_loads`. It asserts that `load_catalog()` returns `{}`. The default catalog now holds `plans.schema` and `plans.graph`, so the test fails. That file is not in `touches`, so this step may not change it.
+- Needed from the owner: add `tests/test_contract.py` to `touches` of this step, or change that test in another way. The fix is small. Check that the default catalog has the IDs `plans.graph` and `plans.schema` instead of `{}`. Then run the gate again.
+- Fixture note: `materialize()` in `tests/test_plans.py` makes an empty `.git` directory in each temporary root. Without it, `scripts/check_plan.py` can find a different root.

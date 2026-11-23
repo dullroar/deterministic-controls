@@ -1,0 +1,11 @@
+---
+id: s1
+status: done
+depends_on: []
+touches: [a.txt]
+lane: none
+gate: "true"
+evidence: "ok"
+---
+
+# Step
