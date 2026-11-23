@@ -1,6 +1,6 @@
 ---
 id: b02-plans-slice
-status: blocked
+status: pending
 depends_on: [b01-contract]
 touches:
   - src/deterministic_controls/checks/plans.py
@@ -9,6 +9,7 @@ touches:
   - src/deterministic_controls/catalog/plans.graph.toml
   - tests/test_plans.py
   - tests/fixtures/plans/**
+  - tests/test_contract.py
   - plans/bootstrap/steps/b02-plans-slice.md
 lane: none
 gate: python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check
@@ -52,6 +53,10 @@ A compatibility test runs `scripts/check_plan.py` on every fixture root and on t
 
 Set `status: done`. Fill `evidence` with the gate command, the result and the date.
 If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
+
+## Operator change (2026-11-23)
+
+The seed missed one file. b01's `test_default_catalog_loads` asserts that `load_catalog()` returns `{}`. This step adds the first catalog entries, so that assertion must change. `tests/test_contract.py` is now in `touches`. Change only that test: assert that the default catalog contains `plans.schema` and `plans.graph` (a subset check, not equality), so that later steps can add their own catalog files without editing this test.
 
 ## Resume notes
 
