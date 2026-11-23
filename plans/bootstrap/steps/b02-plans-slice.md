@@ -1,6 +1,6 @@
 ---
 id: b02-plans-slice
-status: pending
+status: done
 depends_on: [b01-contract]
 touches:
   - src/deterministic_controls/checks/plans.py
@@ -15,7 +15,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate (python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check) passed: 69 tests OK. 2026-11-23."
 ---
 
 # Port the plan checks: `plans.schema` and `plans.graph`
@@ -60,7 +60,7 @@ The seed missed one file. b01's `test_default_catalog_loads` asserts that `load_
 
 ## Resume notes
 
-Blocked on one gate failure. All work is written. Only one test fails.
+Resolved. The operator added `tests/test_contract.py` to `touches`. The test now checks that the default catalog contains `plans.schema` and `plans.graph`. The gate passes. The notes below are history.
 
 - Done: `checks/plans.py`, `checks/__init__.py`, both catalog files, `tests/test_plans.py` and the fixtures in `tests/fixtures/plans/`. `tests/test_plans.py` passes. `check_context.py` and `git diff --check` pass.
 - Blocker: `tests/test_contract.py` (from b01) has `test_default_catalog_loads`. It asserts that `load_catalog()` returns `{}`. The default catalog now holds `plans.schema` and `plans.graph`, so the test fails. That file is not in `touches`, so this step may not change it.
