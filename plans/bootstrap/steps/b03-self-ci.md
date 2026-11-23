@@ -10,9 +10,9 @@ touches:
   - plans/bootstrap/steps/b03-self-ci.md
 lane: none
 gate: python3 -m unittest discover -s tests -v && PYTHONPATH=src python3 -m deterministic_controls check --root . --profile ci --format json --report "${TMPDIR:-/tmp}/controls-b03.json" && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate passed on 2026-11-23: 76 unit tests ok (consumer test installed the package into a venv, no skips), controls check status passed, check_context.py ok, git diff --check clean."
+claimed_by: claude cli-default
+claimed_at: "2026-11-23T23:49:30Z"
+evidence: gate passed 2026-11-23 (driver-verified)
 ---
 
 # Add the CI workflow for this repository and a consumer fixture
