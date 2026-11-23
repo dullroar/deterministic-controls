@@ -1,0 +1,7 @@
+id = "security.personal-data"
+summary = "No personal path or e-mail address in the Markdown of the context folders."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.personal_data"
+entry = "entry"
