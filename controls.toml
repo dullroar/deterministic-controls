@@ -1,0 +1,3 @@
+schema_version = 1
+profile = "ci"
+enabled = ["plans.schema", "plans.graph"]

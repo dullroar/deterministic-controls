@@ -1,6 +1,6 @@
 ---
 id: b03-self-ci
-status: pending
+status: done
 depends_on: [b02-plans-slice]
 touches:
   - .github/workflows/controls.yml
@@ -12,7 +12,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -v && PYTHONPATH=src python3 -m deterministic_controls check --root . --profile ci --format json --report "${TMPDIR:-/tmp}/controls-b03.json" && python3 scripts/check_context.py && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate passed on 2026-11-23: 76 unit tests ok (consumer test installed the package into a venv, no skips), controls check status passed, check_context.py ok, git diff --check clean."
 ---
 
 # Add the CI workflow for this repository and a consumer fixture
