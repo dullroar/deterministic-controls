@@ -1,6 +1,6 @@
 ---
 id: b02-plans-slice
-status: pending
+status: blocked
 depends_on: [b01-contract]
 touches:
   - src/deterministic_controls/checks/plans.py
