@@ -16,9 +16,9 @@ touches:
   - plans/bootstrap/steps/b09-test-the-tests.md
 lane: none
 gate: python3 -m unittest discover -s tests -v && PYTHONPATH=src python3 -m deterministic_controls check --root . --profile full --format json --report "${TMPDIR:-/tmp}/controls-b09.json" && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "2026-11-23: the gate command passed. 196 unit tests ok (new: test_mutation, test_metamorphic, test_fail_closed, test_performance). The full profile gave status passed for all 7 checks. check_context.py (shim) ok. secret_guard --tracked: 0 findings. 10,000 files: 2.3 s."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:30:18Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Test the tests: mutation, metamorphic, fail-closed, performance and the fault matrix
