@@ -1,6 +1,6 @@
 ---
 id: b05-markdown-links
-status: pending
+status: done
 depends_on: [b03-self-ci]
 touches:
   - src/deterministic_controls/checks/markdown_links.py
@@ -14,7 +14,7 @@ fallback: claude
 gate: python3 -m unittest discover -s tests -p 'test_markdown_links.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate (test_markdown_links.py, full unittest discover, check_context.py, git diff --check) passed on 2026-11-23: 82 tests OK."
 ---
 
 # Port `markdown.local-links` with the edge-case fixtures
@@ -50,4 +50,13 @@ If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
 
 ## Resume notes
 
-(none)
+Differences between `scripts/check_links.py` and the library, for the review.
+The pass or fail result is the same in each case.
+
+- Image targets (`![alt](path)`) are not checked. The old script skips them. The library does the same.
+- A raw space in a link target ends the link in the old regex. So `[a](docs/with space.md)` is not a link, and a missing file passes. Fixture `spaces`.
+- An absolute path such as `/dir/file.md` is checked against the host file system, not the repository root. The result depends on the host. Fixture `absolute` uses a path that does not exist.
+- The old script has no special case for `plans/archive`. Links into it are checked like all others. Fixtures `archive`, `archive-bad`.
+- File discovery: the old script uses `git ls-files` (ignored files are left out). The library walks the tree and skips the same directory names. Ignored Markdown files may differ.
+- The library also reports a line number. Fenced blocks are blanked with newlines, so line numbers stay correct.
+- Parameter `all = true` selects all Markdown files, like `--all`.
