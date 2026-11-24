@@ -1,0 +1,6 @@
+# Spaces
+
+A raw space ends the link target, so the old script does not see this as a link:
+[a page](docs/with space.md).
+
+The encoded form is a link and the file exists: [a page](docs/with%20space.md).

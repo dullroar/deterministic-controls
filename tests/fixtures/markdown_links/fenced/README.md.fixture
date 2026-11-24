@@ -1,0 +1,10 @@
+# Fenced
+
+The text below is not a link.
+
+```markdown
+[a missing page](docs/nope.md)
+[ref]: docs/nope.md
+```
+
+Inline code is not a link: `[x](docs/nope.md)`.
