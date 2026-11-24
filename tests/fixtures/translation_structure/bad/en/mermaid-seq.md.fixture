@@ -1,0 +1,14 @@
+One. The accDescr line is removed.
+
+```mermaid
+sequenceDiagram
+    accDescr: A call
+    A->>B: Hello
+```
+
+Two. A semicolon is in a message.
+
+```mermaid
+sequenceDiagram
+    A->>B: Hello
+```

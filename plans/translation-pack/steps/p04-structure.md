@@ -1,6 +1,6 @@
 ---
 id: p04-structure
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/translation_structure.py
@@ -10,9 +10,9 @@ touches:
   - plans/translation-pack/steps/p04-structure.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_structure.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:10:04Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the check `translation.structure`

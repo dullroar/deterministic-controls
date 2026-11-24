@@ -1,0 +1,6 @@
+The diagram is closed.
+
+```mermaid
+flowchart LR
+    A["a"] --> B["b"]
+```

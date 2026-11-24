@@ -1,0 +1,30 @@
+One. A node ID is renamed in one edge only.
+
+```mermaid
+flowchart LR
+    A["a"] --> B["b"]
+    B --> C["c"]
+```
+
+Two. Two branch edges are swapped.
+
+```mermaid
+flowchart LR
+    A -->|yes| B["b"]
+    A -->|no| C["c"]
+```
+
+Three. The accDescr line is removed.
+
+```mermaid
+flowchart LR
+    accDescr: A short story
+    A["a"] --> B["b"]
+```
+
+Four. A double quote is in a quoted label.
+
+```mermaid
+flowchart LR
+    A["a"] --> B["b"]
+```

@@ -1,0 +1,13 @@
+# Estado
+
+```mermaid
+stateDiagram-v2
+    accTitle: Puerta
+    accDescr: Una puerta se abre y se cierra
+    state "Puerta cerrada" as Closed
+    [*] --> Closed
+    Closed --> Open : empujar
+    Open --> Closed : tirar
+    Closed : Cerrada con llave por defecto
+    note right of Open : queda abierta
+```

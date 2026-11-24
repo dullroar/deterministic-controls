@@ -1,0 +1,17 @@
+# Secuencia
+
+```mermaid
+sequenceDiagram
+    accTitle: Inicio de sesión
+    accDescr: El usuario inicia sesión
+    participant U as Usuario
+    participant S as Servidor
+    U->>S: Enviar contraseña
+    S-->>U: Token
+    Note right of S: Comprueba el hash
+    alt válido
+        S->>U: Bienvenido
+    else inválido
+        S->>U: Error
+    end
+```
