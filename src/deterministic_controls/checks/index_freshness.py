@@ -22,6 +22,9 @@ BEGIN = "<!-- BEGIN GENERATED INDEX -->"
 END = "<!-- END GENERATED INDEX -->"
 SKIP_DIRS = {".git", ".venv", "node_modules", "build", "dist", "__pycache__", ".hypothesis"}
 PLAN_SKIP = {"archive"}
+# Folder files that are never index entries. Many consumers keep a README.md in memory/ and
+# scripts/ (their own build_indexes.py skips it). Added in 0.1.2.
+NOT_ENTRIES = {"AGENTS.md", "README.md"}
 FOLDERS = ("memory", "plans", "scripts")
 RUN_ME = re.compile(r"Run me when:\s*(.+?)\s*(?:\*/|#>|-->|\"\"\")?\s*$")
 
@@ -106,7 +109,7 @@ def _entries(context: Context, folder: Path, gaps: list[Finding]) -> list[tuple[
     out: list[tuple[str, str]] = []
     if folder.name == "memory":
         for p in sorted(folder.glob("*.md")):
-            if p.name != "AGENTS.md" and (g := _md_gist(context, p, gaps)):
+            if p.name not in NOT_ENTRIES and (g := _md_gist(context, p, gaps)):
                 out.append((p.name, g))
     elif folder.name == "plans":
         skip = PLAN_SKIP | SKIP_DIRS
@@ -118,7 +121,7 @@ def _entries(context: Context, folder: Path, gaps: list[Finding]) -> list[tuple[
                 gaps.append(_gap(context, d, "plan folder has no plan.md"))
     elif folder.name == "scripts":
         for p in sorted(folder.iterdir()):
-            if p.is_file() and p.name != "AGENTS.md" and not p.name.startswith("."):
+            if p.is_file() and p.name not in NOT_ENTRIES and not p.name.startswith("."):
                 if g := _script_gist(context, p, gaps):
                     out.append((p.name, g))
     return out

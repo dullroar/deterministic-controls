@@ -76,6 +76,19 @@ class GoodTests(unittest.TestCase):
         self.assertEqual(entry(Context(root)), [])
 
 
+class FolderReadmeTests(unittest.TestCase):
+    # Regression (0.1.2): a README.md in memory/ or scripts/ is not an index entry.
+    # The ten repositories of the 2026-11-22 rollout keep one in both folders.
+    def test_readme_in_memory_and_scripts_is_not_an_entry(self):
+        root = materialize(self, "good")
+        (root / "memory" / "README.md").write_text("# About memory\n\nNo front matter here.\n", encoding="utf-8")
+        (root / "scripts").mkdir(exist_ok=True)
+        (root / "scripts" / "README.md").write_text("# About scripts\n\nNo run line here.\n", encoding="utf-8")
+        code, result = run_cli(root)
+        self.assertEqual(code, 0, result)
+        self.assertEqual(entry(Context(root)), [])
+
+
 class BadTests(unittest.TestCase):
     def test_each_bad_fixture_fails_with_its_rule(self):
         for name, (rule_id, path) in BAD.items():
