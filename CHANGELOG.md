@@ -2,6 +2,17 @@
 
 This project uses [SemVer](https://semver.org). See [docs/release-policy.md](./docs/release-policy.md).
 
+## 0.1.2
+
+### Fixed
+
+- `context.index-freshness` no longer treats `README.md` in `memory/` or `scripts/` as an index entry. The ten repositories of the 2026-11-22 rollout keep a `README.md` in both folders, and their own `build_indexes.py` skips it. Before, the check failed in each of them. Found by the controls-rollout pilot.
+- The hook installer (`scripts/install_hooks.sh`, also installed by `adopt apply`) now falls back to `git config secretguard.path` when `SECRET_GUARD` is unset. Non-interactive shells do not read `~/.bashrc`, so the hooks refused every commit in a repository without its own guard copy.
+
+### Changed, renamed and retired checks
+
+- `context.index-freshness`: `README.md` in `memory/` and `scripts/` is skipped, like `AGENTS.md`. This is a compatibility fix, not a weaker check: a folder README is never an index entry.
+
 ## 0.1.1
 
 ### Fixed
