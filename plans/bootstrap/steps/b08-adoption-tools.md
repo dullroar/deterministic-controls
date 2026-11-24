@@ -1,6 +1,6 @@
 ---
 id: b08-adoption-tools
-status: pending
+status: blocked
 depends_on: [b03-self-ci]
 touches:
   - src/deterministic_controls/adopt/**
