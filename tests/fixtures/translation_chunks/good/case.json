@@ -1,0 +1,12 @@
+{
+  "source": [
+    {"id": "s-001", "path": "en/a.md", "text": "Hello world."},
+    {"id": "s-002", "path": "en/a.md", "text": "Second paragraph."},
+    {"id": "s-003", "path": "en/b.md", "text": "Other file."}
+  ],
+  "target": [
+    {"id": "s-001", "path": "es/a.md", "source_text": "Hello world.", "text": "Hola mundo.", "status": "translated"},
+    {"id": "s-002", "path": "es/a.md", "source_text": "Second paragraph.", "text": "Segundo párrafo."},
+    {"id": "s-003", "path": "es/b.md", "source_text": "Other file.", "text": "Otro archivo."}
+  ]
+}

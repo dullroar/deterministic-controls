@@ -1,0 +1,13 @@
+{
+  "blank_lines": true,
+  "source": [
+    {"id": "ñandú-1", "path": "en/a.md", "text": "Rhea."},
+    {"id": "Intro", "path": "en/a.md", "text": "Upper case ID."},
+    {"id": "intro", "path": "en/a.md", "text": "Lower case ID."}
+  ],
+  "target": [
+    {"id": "ñandú-1", "path": "es/a.md", "source_text": "Rhea.", "text": "Ñandú."},
+    {"id": "Intro", "path": "es/a.md", "source_text": "Upper case ID.", "text": "ID en mayúsculas."},
+    {"id": "intro", "path": "es/a.md", "source_text": "Lower case ID.", "text": "ID en minúsculas."}
+  ]
+}

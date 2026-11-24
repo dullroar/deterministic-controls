@@ -1,6 +1,6 @@
 ---
 id: p06-chunks
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/translation_chunks.py
@@ -12,7 +12,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_chunks.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate command passed on 2026-11-23: 10 chunk tests and 281 tests in all pass; check_context.py ok; secret_guard --tracked 0 findings; git diff --check clean."
 ---
 
 # Add the check `translation.chunks`

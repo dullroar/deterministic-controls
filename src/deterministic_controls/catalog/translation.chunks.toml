@@ -1,0 +1,12 @@
+id = "translation.chunks"
+summary = "The chunks of the target match the chunks of a source manifest: no chunk is missing, orphan, duplicate, stale, empty or fuzzy. Generic: it compares two JSONL files and needs no Markdown parser, no language and no project name, so it fits any translation that has a source manifest. Source row: id, path, digest (SHA-256 hex of the source text). Target row: id, path, source_digest, optional status, text or text_digest, custom_id. Optional custom_id_digits (default 12) checks custom_id = id plus the first digits of the source digest."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.translation_chunks"
+entry = "entry"
+
+[parameters]
+source_manifest = ""
+target_manifest = ""
+custom_id_digits = 12
