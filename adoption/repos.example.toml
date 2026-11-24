@@ -1,0 +1,12 @@
+# Example list of repositories to adopt. Placeholder names only.
+# Copy this file outside the repository and fill it in. Never track real targets.
+
+[[repo]]
+name = "example-repo-one"
+path = "<path-to-example-repo-one>"
+profile = "ci"
+
+[[repo]]
+name = "example-repo-two"
+path = "<path-to-example-repo-two>"
+profile = "quick"
