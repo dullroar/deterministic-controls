@@ -33,9 +33,9 @@ touches:
   - plans/translation-pack/steps/p09-fixtures-and-matrix.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_negative.py' -v && python3 -m unittest discover -s tests -p 'test_translation_mutation.py' -v && python3 -m unittest discover -s tests -p 'test_translation_fail_closed.py' -v && python3 -m unittest discover -s tests -v && PYTHONPATH=src python3 -m deterministic_controls check --root . --profile full && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate run on 2026-11-23: the three new test files pass (8, 15 and 26 tests); the full suite passes (369 tests); the full profile check passes (run in process, same entry point); check_context.py passes; secret_guard --tracked gives 0 findings; git diff --check is clean."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:20:40Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Prove the pack can fail: known-bad fixtures, mutation tests, fail-closed tests, fault matrix
