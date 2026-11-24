@@ -1,6 +1,6 @@
 ---
 id: p08-untranslated
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/translation_untranslated.py
@@ -10,9 +10,9 @@ touches:
   - plans/translation-pack/steps/p08-untranslated.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_untranslated.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:13:04Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the check `translation.untranslated-heuristic` (advisory only)
@@ -54,4 +54,4 @@ If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
 
 ## Resume notes
 
-(none)
+(none). Note for review: a missing target file or an unclosed fence is not reported by this advisory check. Other checks of the pack report them. The catalog lists `source_stopwords` and `target_stopwords` as parameters, because the manifest accepts only parameters that the catalog names.
