@@ -10,9 +10,9 @@ touches:
   - plans/translation-pack/steps/p04-structure.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_structure.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate command run in parts on 2026-11-23: test_translation_structure.py 13 tests OK; full suite 240 tests OK; check_context.py ok; secret_guard.py --tracked 0 findings; git diff --check clean."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:10:04Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the check `translation.structure`
