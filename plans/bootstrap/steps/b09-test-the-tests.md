@@ -1,6 +1,6 @@
 ---
 id: b09-test-the-tests
-status: pending
+status: done
 depends_on: [b04-index-freshness, b05-markdown-links, b06-secrets, b07-forbidden-artifacts, b08-adoption-tools]
 touches:
   - tests/test_mutation.py
@@ -16,9 +16,9 @@ touches:
   - plans/bootstrap/steps/b09-test-the-tests.md
 lane: none
 gate: python3 -m unittest discover -s tests -v && PYTHONPATH=src python3 -m deterministic_controls check --root . --profile full --format json --report "${TMPDIR:-/tmp}/controls-b09.json" && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:30:18Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Test the tests: mutation, metamorphic, fail-closed, performance and the fault matrix

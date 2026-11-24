@@ -1,3 +1,13 @@
 schema_version = 1
 profile = "ci"
-enabled = ["plans.schema", "plans.graph"]
+# The profiles ci and full run every check below. The profile quick runs only
+# the mandatory check security.secrets.
+enabled = [
+  "context.index-freshness",
+  "markdown.local-links",
+  "plans.graph",
+  "plans.schema",
+  "repo.forbidden-artifacts",
+  "security.personal-data",
+  "security.secrets",
+]
