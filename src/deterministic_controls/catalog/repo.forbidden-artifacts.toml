@@ -1,0 +1,10 @@
+id = "repo.forbidden-artifacts"
+summary = "Tracked files that must not be committed (runtime output, lock files, secrets)."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.forbidden_artifacts"
+entry = "entry"
+
+[parameters]
+extra_patterns = []

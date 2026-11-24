@@ -1,6 +1,6 @@
 ---
 id: b07-forbidden-artifacts
-status: pending
+status: done
 depends_on: [b03-self-ci]
 touches:
   - src/deterministic_controls/checks/forbidden_artifacts.py
@@ -14,7 +14,7 @@ fallback: claude
 gate: python3 -m unittest discover -s tests -p 'test_forbidden_artifacts.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/secret_guard.py --tracked && python3 scripts/check_context.py && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate command passed on 2026-11-23: new test file 10 tests OK, full suite 86 tests OK, secret_guard 0 findings, check_context ok. Limit: the runner turns an exception in a check into status error (exit 3). So a bad extra_patterns value raises ConfigError in entry (tested), but the CLI exit code is 3, not 2. Exit 2 needs a change in core/runner.py, which is outside touches."
 ---
 
 # Add the new check `repo.forbidden-artifacts`
