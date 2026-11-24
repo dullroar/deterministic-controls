@@ -10,9 +10,9 @@ touches:
   - plans/translation-pack/steps/p06-chunks.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_chunks.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate command passed on 2026-11-23: 10 chunk tests and 281 tests in all pass; check_context.py ok; secret_guard --tracked 0 findings; git diff --check clean."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:13:12Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the check `translation.chunks`
