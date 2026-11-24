@@ -1,6 +1,6 @@
 ---
 id: p09-fixtures-and-matrix
-status: pending
+status: done
 depends_on: [p02-fences, p03-links, p04-structure, p05-glossary, p06-chunks, p07-markdown-pack, p08-untranslated]
 touches:
   - tests/test_translation_negative.py
@@ -33,9 +33,9 @@ touches:
   - plans/translation-pack/steps/p09-fixtures-and-matrix.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_negative.py' -v && python3 -m unittest discover -s tests -p 'test_translation_mutation.py' -v && python3 -m unittest discover -s tests -p 'test_translation_fail_closed.py' -v && python3 -m unittest discover -s tests -v && PYTHONPATH=src python3 -m deterministic_controls check --root . --profile full && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:20:40Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Prove the pack can fail: known-bad fixtures, mutation tests, fail-closed tests, fault matrix
@@ -64,7 +64,14 @@ Read `plans/translation-pack/plan.md` first. A check that never fails proves not
 
 ## Results
 
-(none)
+- Negative cases: 26 planted defects in `ROWS` of `tests/test_translation_negative.py`, plus one advisory case (`translation.untranslated-heuristic.segment`, severity `info`, exit `0`). All run against one good control. The control is clean.
+- No fix was needed in an earlier check or test file.
+- Two defects of the plan table are **not detected** by any pack check. They are limits, kept in `KnownLimitTests` and in `docs/fault-matrix.md`:
+  - a changed macro ID (`[[entry:m4]]` to `[[entry:m5]]`): no pack check compares macro tokens;
+  - a number dropped from a sentence of prose: the pack does not compare digits. A dropped chunk row is detected (`translation.chunks.missing`), so that row of the table is covered through the chunk manifest.
+  The reviewer should decide whether a token check belongs in the pack.
+- The Mermaid `accDescr` removal gives `translation.structure.mermaid-skeleton` (not `mermaid-label`).
+- Measured times: 100 pairs 0.13 s, 1,000 pairs 1.22 s.
 
 ## Record
 
