@@ -2,6 +2,16 @@
 
 This project uses [SemVer](https://semver.org). See [docs/release-policy.md](./docs/release-policy.md).
 
+## 0.1.1
+
+### Fixed
+
+- `adopt apply` now writes `scripts/controls-requirements.txt` with a `Run me when:` line. Before, `build_indexes.py --check` failed in every repository that uses the template layout after an adoption.
+
+### Changed, renamed and retired checks
+
+None.
+
 ## 0.1.0
 
 First release.

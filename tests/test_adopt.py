@@ -184,6 +184,17 @@ class PlanApplyTest(RepoCase):
         self.assertEqual(self.git(root, "rev-list", "--count", "HEAD").strip(), "1")
         self.assertEqual(self.git(root, "branch", "--show-current").strip(), "main")
 
+    def test_apply_scripts_have_run_me_when(self):
+        # Regression (0.1.1): every file that apply writes under scripts/ needs a
+        # "Run me when:" line in its first 25 lines, or build_indexes.py fails.
+        root = self.template_repo()
+        code, _, _ = run_cli("adopt", "apply", "--root", str(root), "--commit", COMMIT)
+        self.assertEqual(code, 0)
+        for rel in ("scripts/check_context.py", "scripts/controls-requirements.txt",
+                    "scripts/secret_guard.py", "scripts/install_hooks.sh"):
+            head = (root / rel).read_text(encoding="utf-8").splitlines()[:25]
+            self.assertTrue(any("Run me when:" in line for line in head), rel)
+
     def test_apply_creates_workflow_when_absent(self):
         root = self.make_repo({"README.md": "# x\n"})
         self.assertEqual(run_cli("adopt", "apply", "--root", str(root), "--commit", COMMIT)[0], 0)
