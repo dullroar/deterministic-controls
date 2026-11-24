@@ -14,9 +14,9 @@ touches:
   - plans/bootstrap/steps/b10-release-prep.md
 lane: none
 gate: bash scripts/release_check.sh && python3 scripts/build_indexes.py --check && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate (bash scripts/release_check.sh && build_indexes --check && check_context && git diff --check) passed on 2026-11-23. 196 tests OK, self check full passed, wheel deterministic_controls-0.1.0 built, sha256 printed."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:33:06Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Prepare release `v0.1.0`: docs, catalog page, changelog, release check
