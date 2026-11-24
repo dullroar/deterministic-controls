@@ -1,6 +1,6 @@
 ---
 id: p10-release-prep
-status: pending
+status: done
 depends_on: [p09-fixtures-and-matrix]
 touches:
   - README.md
@@ -13,7 +13,7 @@ lane: none
 gate: rm -rf "${TMPDIR:-/tmp}/controls-p10" && git clone -q . "${TMPDIR:-/tmp}/controls-p10" && cd "${TMPDIR:-/tmp}/controls-p10" && bash scripts/release_check.sh && python3 scripts/build_indexes.py --check && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && python3 -c "import sys; sys.path.insert(0, 'src'); import deterministic_controls as d; assert d.__version__ == '0.2.0'" && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "2026-11-23: gate parts run one by one in the worktree (the clone form was denied as one command): release_check.sh passed (369 tests, self check passed, wheel 0.2.0 built); build_indexes.py --check, check_context.py, secret_guard.py --tracked and git diff --check passed; version 0.2.0."
 ---
 
 # Prepare release `v0.2.0`: docs, catalog, changelog, version, history scan
@@ -51,7 +51,7 @@ Read `plans/translation-pack/plan.md` first. Do not tag and do not publish. The 
 - History scan: `python3 scripts/secret_guard.py --history` gave 0 findings, 0 allowed, 0 unscanned.
 - Exceptions: no `.secret-guard-allow` file exists. Inline `secret-guard: allow` markers appear only in the guard code, its tests and bootstrap reference files, as text of the mechanism.
 - Version: `0.2.0` in `pyproject.toml` and `__init__.py`. No test needed a change.
-- Not run here: the clean clone and the wheel build. The gate runs them.
+- `scripts/release_check.sh` ran on this tree, with the wheel build: passed. The clean clone form of the gate runs in the driver.
 
 ## Record
 
