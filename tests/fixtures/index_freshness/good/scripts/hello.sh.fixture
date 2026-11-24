@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Print a greeting.
+#
+# Run me when: you want to print a greeting.
+echo hello

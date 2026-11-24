@@ -1,6 +1,6 @@
 ---
 id: b04-index-freshness
-status: pending
+status: done
 depends_on: [b03-self-ci]
 touches:
   - src/deterministic_controls/checks/index_freshness.py
@@ -12,9 +12,9 @@ lane: none
 agent: local
 fallback: claude
 gate: python3 -m unittest discover -s tests -p 'test_index_freshness.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:21:05Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Port `context.index-freshness`, without writes
