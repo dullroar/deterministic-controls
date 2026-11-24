@@ -10,9 +10,9 @@ touches:
   - plans/translation-pack/steps/p08-untranslated.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_untranslated.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate command passed (11 new tests, 282 tests in total, check_context ok, secret_guard 0 findings, git diff --check clean) on 2026-11-23."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:13:04Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the check `translation.untranslated-heuristic` (advisory only)
