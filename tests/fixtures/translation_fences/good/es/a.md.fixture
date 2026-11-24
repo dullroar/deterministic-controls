@@ -1,0 +1,13 @@
+# Titulo
+
+Ejecuta esto:
+
+```text
+total > 40
+```
+
+Luego:
+
+```python
+print("hi")
+```

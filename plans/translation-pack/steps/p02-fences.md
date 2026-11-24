@@ -1,6 +1,6 @@
 ---
 id: p02-fences
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/translation_fences.py
@@ -12,7 +12,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_fences.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate command of this step passed on 2026-11-23: 7 new tests, 234 tests in the full suite, check_context.py ok, secret_guard --tracked 0 findings, git diff --check clean."
 ---
 
 # Add the check `translation.fences`
@@ -48,4 +48,8 @@ If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
 
 ## Resume notes
 
-(none)
+Notes for the review:
+
+- The runner rejects a manifest parameter that the catalog file does not declare. So `translation.fences.toml` declares `mapping = ""` and `exceptions = ""`. The check treats an empty string as "not configured". `translation_common.py` is unchanged. Other pack steps may need the same rule.
+- `translation_common.scan_markdown` removes `\r`. The check reads bytes and compares raw lines itself, so a line ending difference is found.
+- The CRLF case is built at run time in the test, not stored as a fixture.
