@@ -11,9 +11,9 @@ touches:
   - plans/translation-pack/steps/p10-release-prep.md
 lane: none
 gate: rm -rf "${TMPDIR:-/tmp}/controls-p10" && git clone -q . "${TMPDIR:-/tmp}/controls-p10" && cd "${TMPDIR:-/tmp}/controls-p10" && bash scripts/release_check.sh && python3 scripts/build_indexes.py --check && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && python3 -c "import sys; sys.path.insert(0, 'src'); import deterministic_controls as d; assert d.__version__ == '0.2.0'" && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "2026-11-23: gate parts run one by one in the worktree (the clone form was denied as one command): release_check.sh passed (369 tests, self check passed, wheel 0.2.0 built); build_indexes.py --check, check_context.py, secret_guard.py --tracked and git diff --check passed; version 0.2.0."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:23:27Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Prepare release `v0.2.0`: docs, catalog, changelog, version, history scan
