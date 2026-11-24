@@ -1,6 +1,6 @@
 ---
 id: b10-release-prep
-status: pending
+status: done
 depends_on: [b08-adoption-tools, b09-test-the-tests]
 touches:
   - tests/test_cli.py
@@ -16,7 +16,7 @@ lane: none
 gate: bash scripts/release_check.sh && python3 scripts/build_indexes.py --check && python3 scripts/check_context.py && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate (bash scripts/release_check.sh && build_indexes --check && check_context && git diff --check) passed on 2026-11-23. 196 tests OK, self check full passed, wheel deterministic_controls-0.1.0 built, sha256 printed."
 ---
 
 # Prepare release `v0.1.0`: docs, catalog page, changelog, release check

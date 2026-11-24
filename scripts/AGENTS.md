@@ -29,6 +29,8 @@ Read the list. Run only the scripts whose "Run me when" line matches your task.
   Run me when: I want to prove the container or shell setup works. (Template only.)
 * [install_hooks.sh](./install_hooks.sh)
   Run me when: I cloned a repository, or the hooks are missing (check with --check).
+* [release_check.sh](./release_check.sh)
+  Run me when: before a release, and before I ask the operator to tag a release.
 * [scan_secrets.py](./scan_secrets.py)
   Run me when: I changed AGENTS.md, CLAUDE.md, docs/, memory/ or plans/, and before every pull request.
 * [secret_guard.py](./secret_guard.py)

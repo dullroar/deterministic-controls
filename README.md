@@ -1,34 +1,47 @@
-# repo-template
+# deterministic-controls
 
-The template for new repositories. It gives every repository the same layout for humans and for coding agents.
+A small, versioned library of deterministic checks for repositories that follow the `repo-template` layout.
 
-## Use it
+The library runs the same checks in a developer shell, in a pre-commit hook and in CI. A check never changes a file. An agent never certifies its own work: the checks run on their own and without condition.
 
-1. On GitHub, select **Use this template**. Or run `gh repo create <name> --template dullroar/repo-template`.
-2. Follow the "Template-only rules" section of [AGENTS.md](./AGENTS.md).
-3. Delete the example files and the template-only section.
+It uses only the Python standard library. It needs Python 3.11 or later.
 
-## Layout
-
-| Path | Purpose |
-| --- | --- |
-| [AGENTS.md](./AGENTS.md) | Rules for agents. `CLAUDE.md` points to it. |
-| [docs/](./docs/README.md) | Documents for humans. |
-| [memory/](./memory/AGENTS.md) | Facts for agents. One file for each fact. |
-| [plans/](./plans/AGENTS.md) | Work plans, run by agents. |
-| [scripts/](./scripts/AGENTS.md) | Scripts for agents and CI. |
-| `Dockerfile` | Ubuntu environment for the project. Delete it for Windows-only projects. |
-
-## Checks
+## Install
 
 ```bash
-python3 scripts/build_indexes.py   # rebuild the generated indexes
-python3 scripts/check_context.py   # run all checks
+python3 -m pip install "deterministic-controls @ git+https://github.com/dullroar/deterministic-controls@<commit>"
 ```
 
-## Run the plans
+Replace `<commit>` with the commit of the release that you pin. See [docs/upgrade.md](./docs/upgrade.md).
 
-Use [ralph-looper](https://github.com/dullroar/ralph-looper). See [docs/ralph-looper.md](./docs/ralph-looper.md).
+## Example
+
+Put a file `controls.toml` in the root of your repository:
+
+```toml
+schema_version = 1
+profile = "ci"
+enabled = ["plans.schema", "plans.graph", "security.secrets"]
+```
+
+Run the checks:
+
+```bash
+python3 -m deterministic_controls check --root . --profile full
+```
+
+The exit code is `0` when all checks pass. See [docs/run.md](./docs/run.md) for all commands and exit codes.
+
+## Documents
+
+See [docs/README.md](./docs/README.md) for the full list: install, run, read a failure, upgrade, roll back, security limits, release policy and the catalog of checks.
+
+## Develop
+
+```bash
+python3 -m unittest discover -s tests -v
+bash scripts/release_check.sh
+```
 
 ## License
 
