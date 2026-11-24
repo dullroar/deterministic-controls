@@ -1,6 +1,6 @@
 ---
 id: p05-glossary
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/translation_glossary.py
@@ -12,7 +12,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_glossary.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "gate (unittest test_translation_glossary.py, full unittest discover, check_context.py, secret_guard.py --tracked, git diff --check) passed on 2026-11-23; 239 tests OK"
 ---
 
 # Add the check `translation.glossary`

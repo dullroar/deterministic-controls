@@ -1,0 +1,13 @@
+id = "translation.glossary"
+summary = "Each source term has its approved rendering in the target and no banned word. Generic: the terms, the banned words and the do-not-translate phrases come from files, not from code, so it fits any Markdown-to-Markdown translation with a mapping file. Matching: Unicode NFC, case ignored, whole words only, code, URLs and link destinations skipped."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.translation_glossary"
+entry = "entry"
+
+[parameters]
+glossary = ""
+mapping = ""
+dnt = ""
+exceptions = ""
