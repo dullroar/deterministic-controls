@@ -16,7 +16,7 @@ Pin a full commit hash. Do not pin a branch name.
 python3 -m pip install "deterministic-controls @ git+https://github.com/dullroar/deterministic-controls@<commit>"
 ```
 
-Replace `<commit>` with the commit that the release notes name.
+Replace `<commit>` with the commit that the release notes name. For release `0.2.0`, the commit is the one that the tag `v0.2.0` points to. The operator writes it in the release notes after the tag exists.
 
 ## Check the install
 
@@ -24,7 +24,7 @@ Replace `<commit>` with the commit that the release notes name.
 python3 -m deterministic_controls version
 ```
 
-The command prints the version, for example `0.1.0`.
+The command prints the version, for example `0.2.0`.
 
 ## Add the manifest
 

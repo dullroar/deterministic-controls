@@ -1,0 +1,15 @@
+Uno. Un ID de estado cambia en una sola transición.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Busy : iniciar
+    Busy --> Wait : parar
+```
+
+Dos. Hay un punto y coma en una etiqueta de transición.
+
+```mermaid
+stateDiagram-v2
+    Idle --> Busy : iniciar; ya
+```

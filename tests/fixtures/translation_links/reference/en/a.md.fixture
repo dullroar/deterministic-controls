@@ -1,0 +1,6 @@
+# Page
+
+See [the data][r] and a note.[^1]
+
+[r]: data.txt#L2
+[^1]: A note, not a link.

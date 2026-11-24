@@ -32,6 +32,10 @@ python3 -m deterministic_controls check --root . --profile full
 
 The exit code is `0` when all checks pass. See [docs/run.md](./docs/run.md) for all commands and exit codes.
 
+## Translation pack
+
+The library has an opt-in pack of checks for a Markdown-to-Markdown translation that has a source manifest: code blocks, links, structure, glossary, chunks and more. A check runs only if you enable it. See [docs/translation-pack.md](./docs/translation-pack.md).
+
 ## Documents
 
 See [docs/README.md](./docs/README.md) for the full list: install, run, read a failure, upgrade, roll back, security limits, release policy and the catalog of checks.

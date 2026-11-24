@@ -1,0 +1,5 @@
+source_root = "en"
+target_root = "es"
+
+[anchor_renames]
+"first-title" = "primer-título"

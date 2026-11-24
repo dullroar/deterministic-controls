@@ -1,0 +1,7 @@
+# Page
+
+See [data](data.txt).
+
+```markdown
+A [link in a fence](gone.txt) is only text.
+```

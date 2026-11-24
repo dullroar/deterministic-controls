@@ -1,0 +1,6 @@
+{
+  "source": [
+    {"id": "s-001", "path": "en/a.md", "text": "Hello world."}
+  ],
+  "raw_target": ["{\"id\": \"s-001\", \"path\": \"es/a.md\", "]
+}

@@ -1,0 +1,23 @@
+[[terms]]
+id = "widget"
+en = "widget"
+target = "artilugio"
+banned = ["cacharro"]
+
+[[terms]]
+id = "signal"
+en = "signal"
+target = "señal"
+banned = ["senal"]
+
+[[terms]]
+id = "blink"
+en = "blink"
+target = "parpadeo"
+banned = []
+
+[[terms]]
+id = "gear"
+en = "gear"
+target = "engranaje"
+banned = ["rueda"]

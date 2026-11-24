@@ -1,0 +1,6 @@
+{
+  "source": [
+    {"id": "s-001", "path": "en/a.md", "text": "Hello world."}
+  ],
+  "no_target_file": true
+}

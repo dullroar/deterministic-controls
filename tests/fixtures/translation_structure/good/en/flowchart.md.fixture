@@ -1,0 +1,15 @@
+# Flow
+
+```mermaid
+flowchart TD
+    accTitle: Order flow
+    accDescr: Shows the order flow
+    A["Start"] --> B{"Valid?"}
+    B -->|yes| C["Ship"]
+    B -->|no| D["Reject"]
+    subgraph S1["Group"]
+        C
+    end
+    classDef ok fill:#fff
+    class C ok
+```

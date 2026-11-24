@@ -1,0 +1,16 @@
+---
+title: Guía
+kind: tutorial
+---
+
+# Título
+
+## Parte
+
+Texto con palabras en **negrita**.[^1]
+
+| nombre | valor |
+| --- | --- |
+| `a|b` | c \| d |
+
+[^1]: Texto de la nota.

@@ -1,0 +1,6 @@
+A pie chart is not understood.
+
+```mermaid
+pie
+    "a" : 1
+```

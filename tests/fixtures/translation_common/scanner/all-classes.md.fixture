@@ -1,0 +1,20 @@
+---
+title: Example
+---
+Prose line.
+
+<!-- one line comment -->
+<!-- multi
+line comment -->
+| a | b |
+| - | - |
+```python
+x = 1
+```
+~~~~text
+~~~
+still inside
+~~~~
+   ```sh
+   indented
+   ```

@@ -1,0 +1,7 @@
+# Pagina
+
+Mira [datos](data.txt).
+
+```markdown
+Un [enlace en un bloque](otro.txt) es solo texto.
+```

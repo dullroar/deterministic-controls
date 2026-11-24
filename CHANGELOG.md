@@ -2,6 +2,32 @@
 
 This project uses [SemVer](https://semver.org). See [docs/release-policy.md](./docs/release-policy.md).
 
+## 0.2.0
+
+The translation and Markdown pack. All checks of the pack are opt-in.
+
+### Added checks
+
+- `translation.fences`: code blocks of a translation equal the source byte for byte.
+- `translation.links`: links, images and anchors of a translation match the source after the maps.
+- `translation.structure`: headings, tables, footnotes, bold spans, front matter keys and Mermaid skeletons equal the source.
+- `translation.glossary`: approved renderings are used. Banned words and missing do-not-translate phrases are reported.
+- `translation.chunks`: chunks of the target match the source manifest.
+- `translation.untranslated-heuristic`: advisory hint for a segment that may be untranslated. Severity is `info`.
+- `markdown.required-headings`: Markdown files have the required headings.
+- `markdown.front-matter`: Markdown files have the required front matter keys and values.
+- `markdown.document-ids`: Markdown files have unique, stable document IDs.
+
+### Added tools
+
+- The pack contract: a mapping file, an exception file, fail-closed rules and the rule ID form `<check-id>.<rule>`. See `docs/translation-pack.md`.
+- The shared module `checks/translation_common.py`.
+- Known-bad fixtures, mutation tests, fail-closed tests and the fault matrix (`docs/fault-matrix.md`).
+
+### Changed, renamed and retired checks
+
+None. No check is renamed or retired. The core and the first seven checks are unchanged.
+
 ## 0.1.2
 
 ### Fixed

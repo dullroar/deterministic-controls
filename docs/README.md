@@ -12,4 +12,5 @@ Edit this index by hand. Add one line each time you add a file.
 | [security-limits.md](./security-limits.md) | What the secret scan and CI can and cannot do. |
 | [release-policy.md](./release-policy.md) | SemVer, immutable tags and release notes. |
 | [catalog.md](./catalog.md) | Each check: ID, status, severity, parameters and rules. |
+| [translation-pack.md](./translation-pack.md) | The opt-in translation pack: contract, mapping file, exception file and checks. |
 | [ralph-looper.md](./ralph-looper.md) | How agents run a plan with the `ralph-looper` tool. |

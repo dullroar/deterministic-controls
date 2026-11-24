@@ -1,0 +1,4 @@
+[[exception]]
+rule = "translation.glossary.banned-term"
+path = "es/a.md"
+reason = "The old word is a quoted name in this document."

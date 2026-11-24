@@ -1,0 +1,8 @@
+{
+  "source": [
+    {"id": "Intro", "path": "en/a.md", "text": "Hello world."}
+  ],
+  "target": [
+    {"id": "intro", "path": "es/a.md", "source_text": "Hello world.", "text": "Hola mundo."}
+  ]
+}

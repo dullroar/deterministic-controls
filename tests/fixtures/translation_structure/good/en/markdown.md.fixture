@@ -1,0 +1,16 @@
+---
+title: Guide
+kind: tutorial
+---
+
+# Title
+
+## Part
+
+Text with **bold** words.[^1]
+
+| name | value |
+| --- | --- |
+| `a|b` | c \| d |
+
+[^1]: Note text.

@@ -1,0 +1,17 @@
+# Sequence
+
+```mermaid
+sequenceDiagram
+    accTitle: Login
+    accDescr: The user logs in
+    participant U as User
+    participant S as Server
+    U->>S: Send password
+    S-->>U: Token
+    Note right of S: Checks the hash
+    alt valid
+        S->>U: Welcome
+    else invalid
+        S->>U: Error
+    end
+```

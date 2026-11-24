@@ -1,0 +1,16 @@
+id = "translation.untranslated-heuristic"
+summary = "Advisory heuristic, never required: it hints that a translated Markdown segment may still be in the source language, by the share of source-language stopwords. Findings have severity info and never fail a run. It is generic: the stopword list is a parameter, so it fits any Markdown-to-Markdown translation with a source manifest, with no language or project name in its code."
+version = "1"
+status = "advisory"
+severity = "info"
+module = "deterministic_controls.checks.translation_untranslated"
+entry = "entry"
+
+[parameters]
+mapping = ""
+exceptions = ""
+dnt = ""
+threshold = 0.30
+min_words = 6
+target_stopwords = []
+source_stopwords = ["the", "and", "of", "to", "is", "are", "was", "were", "that", "with", "for", "this", "you", "your", "not", "from", "it", "be", "can", "what", "which", "when", "if", "or", "by", "an", "at", "on", "in", "has", "have", "will", "would", "should", "does", "do", "been", "being", "their", "there", "then", "than", "these", "those", "into", "about", "because", "while", "where", "who", "how", "why", "also", "only", "just", "but", "more", "most", "some", "any", "each", "every", "other", "such", "both"]

@@ -1,0 +1,15 @@
+One. A state ID is renamed in one transition only.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Busy : start
+    Busy --> Idle : stop
+```
+
+Two. A semicolon is in a transition label.
+
+```mermaid
+stateDiagram-v2
+    Idle --> Busy : start
+```

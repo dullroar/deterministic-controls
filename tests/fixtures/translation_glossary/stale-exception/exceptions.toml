@@ -1,0 +1,4 @@
+[[exception]]
+rule = "translation.glossary.banned-term"
+path = "es/a.md"
+reason = "This row waives nothing, because the target is clean."
