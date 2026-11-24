@@ -1,0 +1,5 @@
+source_root = "en"
+target_root = "es"
+
+[path_renames]
+"b.md" = "renombrado.md"

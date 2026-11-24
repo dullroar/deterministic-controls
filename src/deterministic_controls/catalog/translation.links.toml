@@ -1,0 +1,13 @@
+id = "translation.links"
+summary = "Each link, image and anchor of a translated Markdown file matches its source after the path and anchor renames of the mapping. The check is generic: it works on any Markdown-to-Markdown translation that has a source manifest, with no language, book or project name in its code. It never fetches a URL."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.translation_links"
+entry = "entry"
+
+# An empty string means "not configured". The check then passes with no findings.
+[parameters]
+mapping = ""
+exceptions = ""
+source_repository_url = ""

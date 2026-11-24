@@ -1,6 +1,6 @@
 ---
 id: p03-links
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/translation_links.py
@@ -12,7 +12,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_links.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate command run in the worktree on 2026-11-23: test_translation_links.py 12 tests OK; full suite 239 tests OK; check_context.py ok; secret_guard.py --tracked 0 findings; git diff --check clean."
 ---
 
 # Add the check `translation.links`
@@ -54,4 +54,8 @@ If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
 
 ## Resume notes
 
-(none)
+For the review (no work remains in this step):
+
+- The runner rejects a parameter that the catalog file does not list. So `translation.links.toml` has a `[parameters]` table with `mapping`, `exceptions` and `source_repository_url`, each set to `""`. TOML has no null value. The check treats `""` as "not configured". Other pack checks (p02 and p04 to p08) need the same catalog table and the same rule. The shared loader `translation_common._read_parameter_file` rejects `""`. A later step can move the filter of `""` into that helper.
+- A link past the pairing (a missing target file) gives `missing-target` from the shared helper. The links of that file are not compared.
+- A source file with an unclosed fence also gives a finding (on the source path).

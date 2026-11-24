@@ -1,0 +1,11 @@
+# Guia
+
+Lee [parte](b.md#setup), [otra vez](b.md#setup-1), [sitio](https://example.org/x?q=1) y [archivos](ftp://example.org/f).
+
+![diagrama](img/p.svg)
+
+<a href="img/p.svg">imagen</a> y <a name="old"></a> ve a [viejo](#old).
+
+Lineas [rango](data.txt#L2-L3) y [una](data.txt#L1).
+
+En linea `[code](nowhere.md)`, una macro [[entry:m4]] y {{macro}}.
