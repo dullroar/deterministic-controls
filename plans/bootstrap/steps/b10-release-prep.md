@@ -3,6 +3,8 @@ id: b10-release-prep
 status: pending
 depends_on: [b08-adoption-tools, b09-test-the-tests]
 touches:
+  - tests/test_cli.py
+  - src/deterministic_controls/__init__.py
   - README.md
   - docs/**
   - CHANGELOG.md
@@ -46,6 +48,10 @@ Read `plans/bootstrap/plan.md` first. Do not tag and do not publish. The operato
 Set `status: done`. Fill `evidence` with the gate command, the result and the date.
 If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
 If the wheel build needs a network and none is available, write that under "Resume notes". Do not change the gate.
+
+## Operator change (2026-11-23)
+
+The seed missed two files. `tests/test_cli.py` asserts the version string literally (`"0.0.0"`), and `__version__` lives in `src/deterministic_controls/__init__.py`. Set the version in both `pyproject.toml` and `__init__.py`. Change the version test to compare `version` output with `deterministic_controls.__version__` (and with `pyproject.toml`), not with a literal, so that later releases do not need a test edit.
 
 ## Resume notes
 

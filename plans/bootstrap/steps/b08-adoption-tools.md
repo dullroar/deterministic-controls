@@ -1,8 +1,9 @@
 ---
 id: b08-adoption-tools
-status: blocked
+status: pending
 depends_on: [b03-self-ci]
 touches:
+  - tests/test_cli.py
   - src/deterministic_controls/adopt/**
   - tests/test_adopt.py
   - tests/fixtures/adopt/**
@@ -63,6 +64,10 @@ Follow the fixture rule in `plans/bootstrap/plan.md`. Build repositories at run 
 
 Set `status: done`. Fill `evidence` with the gate command, the result and the date.
 If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
+
+## Operator change (2026-11-23)
+
+The seed missed one file. b01 left a placeholder test, `test_adopt_not_implemented`, that expects `adopt` to print "not implemented". This step implements `adopt`, so replace only that test with one that checks the real behavior (for example: `adopt audit --root <missing dir>` exits 2 with a clear message). `tests/test_cli.py` is now in `touches`.
 
 ## Resume notes
 
