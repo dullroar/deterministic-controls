@@ -1,3 +1,3 @@
 """Deterministic checks for repositories that follow the repo-template layout."""
 
-__version__ = "0.1.2"
+__version__ = "0.2.0"

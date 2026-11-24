@@ -46,7 +46,12 @@ Read `plans/translation-pack/plan.md` first. Do not tag and do not publish. The 
 
 ## Results
 
-(none)
+- Unit tests: 369 ran, all passed (`python3 -m unittest discover -s tests`).
+- Self check: `check --root . --profile full` gave status `passed` (7 checks, all passed).
+- History scan: `python3 scripts/secret_guard.py --history` gave 0 findings, 0 allowed, 0 unscanned.
+- Exceptions: no `.secret-guard-allow` file exists. Inline `secret-guard: allow` markers appear only in the guard code, its tests and bootstrap reference files, as text of the mechanism.
+- Version: `0.2.0` in `pyproject.toml` and `__init__.py`. No test needed a change.
+- Not run here: the clean clone and the wheel build. The gate runs them.
 
 ## Record
 

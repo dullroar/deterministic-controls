@@ -19,6 +19,14 @@ A consumer repository pins one commit of this library. A change of the pin is a 
 
 Do not change the pin and other code in one pull request.
 
+## Upgrade to 0.2.0
+
+Release `0.2.0` adds the translation and Markdown pack. See [translation-pack.md](./translation-pack.md).
+
+- Use `<commit>` for the install line of this release: the commit that the tag `v0.2.0` points to.
+- No check is renamed or retired. The core and the first seven checks are unchanged.
+- The new checks are opt-in. They run only if you list them in `enabled`. An upgrade alone adds no finding to your repository.
+
 ## Roll back
 
 1. Make a branch.

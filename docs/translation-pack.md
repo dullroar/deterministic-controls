@@ -82,12 +82,54 @@ The checks use `src/deterministic_controls/checks/translation_common.py`. It has
 
 | Check ID | Status | What it does |
 | --- | --- | --- |
-| `translation.fences` | added in step p02 | Code and output blocks equal the source. |
-| `translation.links` | added in step p03 | Links, images and anchors of the target match the source after the maps. |
-| `translation.structure` | added in step p04 | Headings, tables, footnotes and front matter keys equal the source. |
-| `translation.glossary` | added in step p05 | Approved terms are used and banned words are not. |
-| `translation.chunks` | added in step p06 | Chunk IDs and source digests are complete and not stale. |
-| `markdown.required-headings` | added in step p07 | Listed headings exist in each Markdown file. |
-| `markdown.front-matter` | added in step p07 | Front matter has the required keys. |
-| `markdown.document-ids` | added in step p07 | Document IDs are present and unique. |
-| `translation.untranslated-heuristic` | added in step p08 | Advisory: a prose segment that is still in the source language. |
+| `translation.fences` | advisory | Code and output blocks equal the source byte for byte. |
+| `translation.links` | advisory | Links, images and anchors of the target match the source after the maps. |
+| `translation.structure` | advisory | Headings, tables, footnotes, bold spans, front matter keys and Mermaid skeletons equal the source. |
+| `translation.glossary` | advisory | Approved terms are used. Banned words are not. Do-not-translate phrases stay. |
+| `translation.chunks` | advisory | Chunk IDs and source digests are complete and not stale. |
+| `markdown.required-headings` | advisory | Listed headings exist in each Markdown file. |
+| `markdown.front-matter` | advisory | Front matter has the required keys and values. |
+| `markdown.document-ids` | advisory | Document IDs are present and unique. |
+| `translation.untranslated-heuristic` | advisory, severity `info` | Hint: a prose segment that may be in the source language. It never fails a run. |
+
+The catalog status `advisory` means that the check is not required in every profile. A finding of severity `error` still fails the run. See [catalog.md](./catalog.md) for parameters and rules.
+
+## Adopt the pack
+
+1. Add the checks that you need to `enabled` in `controls.toml`. Do not enable the others.
+
+   ```toml
+   enabled = ["translation.fences", "translation.links"]
+
+   [parameters."translation.fences"]
+   mapping = "translation/mapping.toml"
+   exceptions = "translation/exceptions.toml"
+   ```
+
+2. Write the mapping file. See "Mapping file" above. Put the source tree inside the repository.
+3. Write the exception file. It can be empty. Add a row only for a finding that you accept, and give a reason.
+4. Run one check. The command has no option to pick a check. A check runs only if it is in `enabled`. So list only that check in `enabled`, and run:
+
+   ```bash
+   python3 -m deterministic_controls check --root . --profile full
+   ```
+
+   Run `python3 -m deterministic_controls explain translation.fences` to see the parameters and their defaults.
+5. Fix each finding, or add an exception row with a reason.
+
+### Limits
+
+- The source tree must be inside the checked root.
+- `translation.untranslated-heuristic` is advisory. It can be wrong in both directions.
+- Rules that depend on one language, for example Spanish-specific rules, stay in the translation repository.
+- A check does not fetch a URL. An external link is compared as text.
+
+## What stays out
+
+These parts are project-specific. They are not in the pack:
+
+- word lists and glossaries of one language pair;
+- the generator of the do-not-translate list;
+- the tools that make or send translation batches;
+- rules for one language, one book or one project;
+- the source manifest writer.
