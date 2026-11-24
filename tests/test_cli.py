@@ -200,7 +200,12 @@ class OtherCommandTests(unittest.TestCase):
     def test_version(self):
         proc = self.run_module("version")
         self.assertEqual(proc.returncode, 0)
-        self.assertEqual(proc.stdout.strip(), "0.0.0")
+        import deterministic_controls
+        import tomllib
+
+        pyproject = tomllib.loads((REPO / "pyproject.toml").read_text(encoding="utf-8"))
+        self.assertEqual(proc.stdout.strip(), deterministic_controls.__version__)
+        self.assertEqual(proc.stdout.strip(), pyproject["project"]["version"])
 
     def test_adopt_missing_root_fails(self):
         missing = os.path.join(tempfile.gettempdir(), "dc-no-such-dir-for-adopt-test")

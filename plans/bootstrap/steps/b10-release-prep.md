@@ -1,6 +1,6 @@
 ---
 id: b10-release-prep
-status: pending
+status: done
 depends_on: [b08-adoption-tools, b09-test-the-tests]
 touches:
   - tests/test_cli.py
@@ -14,9 +14,9 @@ touches:
   - plans/bootstrap/steps/b10-release-prep.md
 lane: none
 gate: bash scripts/release_check.sh && python3 scripts/build_indexes.py --check && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:33:06Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Prepare release `v0.1.0`: docs, catalog page, changelog, release check
