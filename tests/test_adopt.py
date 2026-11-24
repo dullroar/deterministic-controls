@@ -289,9 +289,17 @@ class ShimTest(RepoCase):
                               capture_output=True, text=True, env=env, timeout=120)
 
     def test_old_output_lines_and_exit_zero(self):
-        root = self.adopted_repo()
+        root = self.template_repo()
+        # The fixture has no generated indexes and no link targets. Enable only the checks it can pass.
+        (root / "controls.toml").write_text(
+            'schema_version = 1\nprofile = "ci"\n'
+            'enabled = ["plans.schema", "plans.graph", "security.secrets", "security.personal-data"]\n',
+            encoding="utf-8")
+        self.commit(root, "manifest")
+        self.assertEqual(run_cli("adopt", "apply", "--root", str(root), "--commit", COMMIT)[0], 0)
+        self.commit(root, "adopt")
         proc = self.run_shim(root, self.cache_with_fake_environment())
-        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         self.assertEqual(proc.stdout.splitlines(), ["ok   check_plan.py", "ok   scan_secrets.py"])
 
     def test_failure_gives_old_fail_line_and_exit_one(self):
