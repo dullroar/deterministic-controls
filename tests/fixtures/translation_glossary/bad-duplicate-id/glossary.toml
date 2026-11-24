@@ -1,0 +1,11 @@
+[[terms]]
+id = "widget"
+en = "widget"
+target = "artilugio"
+banned = []
+
+[[terms]]
+id = "widget"
+en = "signal"
+target = "señal"
+banned = []
