@@ -1,0 +1,7 @@
+id = "context.index-freshness"
+summary = "Generated index files (memory/AGENTS.md, plans/AGENTS.md, scripts/AGENTS.md) are up to date."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.index_freshness"
+entry = "entry"

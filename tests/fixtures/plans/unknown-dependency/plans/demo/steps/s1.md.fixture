@@ -1,0 +1,10 @@
+---
+id: s1
+status: pending
+depends_on: [ghost]
+touches: [a.txt]
+lane: none
+gate: "true"
+---
+
+# Step

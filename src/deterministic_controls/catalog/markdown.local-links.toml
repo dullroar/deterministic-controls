@@ -1,0 +1,7 @@
+id = "markdown.local-links"
+summary = "Each relative Markdown link points to a file that exists, and each #anchor matches a heading."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.markdown_links"
+entry = "entry"

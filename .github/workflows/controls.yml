@@ -1,0 +1,26 @@
+name: controls
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  controls:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Run the unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Run the controls on this repository
+        run: python3 -m deterministic_controls check --root . --profile ci --format json --report "$RUNNER_TEMP/controls.json"
+      - name: Upload the report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: controls-report
+          path: ${{ runner.temp }}/controls.json
+          if-no-files-found: ignore
