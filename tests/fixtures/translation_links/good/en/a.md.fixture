@@ -1,0 +1,11 @@
+# Guide
+
+Read [part](b.md#setup), [again](b.md#setup-1), [site](https://example.org/x?q=1) and [files](ftp://example.org/f).
+
+![diagram](img/p.svg)
+
+<a href="img/p.svg">picture</a> and <a name="old"></a> go to [old](#old).
+
+Lines [range](data.txt#L2-L3) and [one](data.txt#L1).
+
+Inline `[code](nowhere.md)`, a macro [[entry:m4]] and {{macro}}.
