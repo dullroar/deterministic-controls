@@ -12,9 +12,9 @@ lane: none
 agent: local
 fallback: claude
 gate: python3 -m unittest discover -s tests -p 'test_forbidden_artifacts.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/secret_guard.py --tracked && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate command passed on 2026-11-23: new test file 10 tests OK, full suite 86 tests OK, secret_guard 0 findings, check_context ok. Limit: the runner turns an exception in a check into status error (exit 3). So a bad extra_patterns value raises ConfigError in entry (tested), but the CLI exit code is 3, not 2. Exit 2 needs a change in core/runner.py, which is outside touches."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:21:08Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the new check `repo.forbidden-artifacts`
