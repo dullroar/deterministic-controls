@@ -1,6 +1,6 @@
 ---
 id: p01-pack-contract
-status: pending
+status: done
 depends_on: []
 touches:
   - src/deterministic_controls/checks/translation_common.py
@@ -12,9 +12,9 @@ touches:
   - plans/translation-pack/steps/p01-pack-contract.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_common.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/build_indexes.py --check && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:05:38Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Write the pack contract and the shared helpers

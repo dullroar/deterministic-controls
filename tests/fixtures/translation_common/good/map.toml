@@ -1,0 +1,8 @@
+source_root = "en"
+target_root = "es"
+
+[path_renames]
+"sub/b.md" = "sub/renamed.md"
+
+[anchor_renames]
+"first-title" = "primer-titulo"
