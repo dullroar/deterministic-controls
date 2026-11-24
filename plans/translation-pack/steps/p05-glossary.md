@@ -10,9 +10,9 @@ touches:
   - plans/translation-pack/steps/p05-glossary.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_glossary.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "gate (unittest test_translation_glossary.py, full unittest discover, check_context.py, secret_guard.py --tracked, git diff --check) passed on 2026-11-23; 239 tests OK"
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:08:21Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the check `translation.glossary`
