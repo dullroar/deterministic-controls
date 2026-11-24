@@ -1,0 +1,15 @@
+# Flujo
+
+```mermaid
+flowchart TD
+    accTitle: Flujo del pedido
+    accDescr: Muestra el flujo del pedido
+    A["Inicio"] --> B{"¿Válido?"}
+    B -->|sí| C["Enviar"]
+    B -->|no| D["Rechazar"]
+    subgraph S1["Grupo"]
+        C
+    end
+    classDef ok fill:#fff
+    class C ok
+```

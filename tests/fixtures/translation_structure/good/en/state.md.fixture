@@ -1,0 +1,13 @@
+# State
+
+```mermaid
+stateDiagram-v2
+    accTitle: Door
+    accDescr: A door opens and closes
+    state "Closed door" as Closed
+    [*] --> Closed
+    Closed --> Open : push
+    Open --> Closed : pull
+    Closed : Locked by default
+    note right of Open : stays open
+```

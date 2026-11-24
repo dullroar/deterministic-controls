@@ -1,0 +1,13 @@
+id = "translation.structure"
+summary = "A translated Markdown file keeps the structure of its source: headings, table rows and cells, footnotes, bold spans, front matter keys and Mermaid skeletons. It is generic: it reads only Markdown structure and a mapping file, so it fits any Markdown-to-Markdown translation with a source manifest, with no language or project name in its code."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.translation_structure"
+entry = "entry"
+
+[parameters]
+mapping = ""
+exceptions = ""
+disabled_rules = []
+fixed_front_matter_keys = []

@@ -1,6 +1,6 @@
 ---
 id: p04-structure
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/translation_structure.py
@@ -12,7 +12,7 @@ lane: none
 gate: python3 -m unittest discover -s tests -p 'test_translation_structure.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
 claimed_by: ""
 claimed_at: ""
-evidence: ""
+evidence: "Gate command run in parts on 2026-11-23: test_translation_structure.py 13 tests OK; full suite 240 tests OK; check_context.py ok; secret_guard.py --tracked 0 findings; git diff --check clean."
 ---
 
 # Add the check `translation.structure`

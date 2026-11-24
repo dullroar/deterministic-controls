@@ -1,0 +1,29 @@
+Uno. Un ID de nodo cambia en una sola arista.
+
+```mermaid
+flowchart LR
+    A["a"] --> B["b"]
+    B --> D["c"]
+```
+
+Dos. Dos aristas de rama se intercambian.
+
+```mermaid
+flowchart LR
+    A -->|no| C["c"]
+    A -->|yes| B["b"]
+```
+
+Tres. Falta la línea accDescr.
+
+```mermaid
+flowchart LR
+    A["a"] --> B["b"]
+```
+
+Cuatro. Hay una comilla doble en una etiqueta.
+
+```mermaid
+flowchart LR
+    A["dijo "hola""] --> B["b"]
+```

@@ -1,0 +1,13 @@
+Uno. Falta la línea accDescr.
+
+```mermaid
+sequenceDiagram
+    A->>B: Hola
+```
+
+Dos. Hay un punto y coma en un mensaje.
+
+```mermaid
+sequenceDiagram
+    A->>B: Hola; adiós
+```

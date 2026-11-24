@@ -1,0 +1,6 @@
+Un gráfico circular no se entiende.
+
+```mermaid
+pie
+    "a" : 1
+```
