@@ -1,0 +1,4 @@
+```python
+if total >= 40:
+    stop()
+```

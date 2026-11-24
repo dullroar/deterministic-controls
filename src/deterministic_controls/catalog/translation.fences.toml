@@ -1,0 +1,13 @@
+id = "translation.fences"
+summary = "Fenced code blocks of a translation equal the source byte for byte, in the same count, order and kind. This is generic: any translation keeps code blocks unchanged."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.translation_fences"
+entry = "entry"
+
+[parameters]
+mapping = ""
+exceptions = ""
+translatable_kinds = ["mermaid"]
+inline_code = false
