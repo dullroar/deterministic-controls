@@ -11,9 +11,9 @@ touches:
   - plans/bootstrap/steps/b08-adoption-tools.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_adopt.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/secret_guard.py --tracked && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: "gate passed 2026-11-23: test_adopt.py 32 tests OK; full suite 153 tests OK; secret_guard --tracked 0 findings; check_context.py ok; git diff --check clean"
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:26:45Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Build the adoption tools: `adopt audit`, `plan`, `apply` and `receipt`
