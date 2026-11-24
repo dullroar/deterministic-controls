@@ -1,0 +1,12 @@
+id = "markdown.document-ids"
+summary = "Markdown files that match a glob have a non-empty, unique ID without spaces in their front matter. An optional registry keeps the IDs stable. It is generic: it reads only front matter and a registry file, so it fits any Markdown repository."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.markdown_document_ids"
+entry = "entry"
+
+[parameters]
+glob = ""
+key = "id"
+registry = ""

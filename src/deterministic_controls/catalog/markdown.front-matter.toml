@@ -1,0 +1,10 @@
+id = "markdown.front-matter"
+summary = "Markdown files that match a glob have front matter with the required keys and allowed values. It is generic: it reads only simple key and list front matter and a list of rules, so it fits any Markdown repository."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.markdown_front_matter"
+entry = "entry"
+
+[parameters]
+rules = []

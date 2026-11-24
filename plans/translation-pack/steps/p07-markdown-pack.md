@@ -1,6 +1,6 @@
 ---
 id: p07-markdown-pack
-status: pending
+status: done
 depends_on: [p01-pack-contract]
 touches:
   - src/deterministic_controls/checks/markdown_required_headings.py
@@ -18,9 +18,9 @@ touches:
   - plans/translation-pack/steps/p07-markdown-pack.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_markdown_required_headings.py' -v && python3 -m unittest discover -s tests -p 'test_markdown_front_matter.py' -v && python3 -m unittest discover -s tests -p 'test_markdown_document_ids.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/check_context.py && python3 scripts/secret_guard.py --tracked && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T03:14:40Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Add the Markdown pack checks (pack A)
@@ -58,4 +58,4 @@ If you cannot finish, write "Resume notes" below. Keep the status `in_progress`.
 
 ## Resume notes
 
-(none)
+(none) Notes for the review: `markdown.document-ids` has one rule beyond the step list, `.bad-id` (an ID with a space, or an ID that is a list). A registry orphan finding names the missing file path. `markdown.required-headings` also reports `.unclosed-fence`.
