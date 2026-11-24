@@ -1,0 +1,1 @@
+python3 -m pip install "deterministic-controls @ git+https://github.com/dullroar/deterministic-controls@<commit>"

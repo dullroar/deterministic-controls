@@ -202,10 +202,11 @@ class OtherCommandTests(unittest.TestCase):
         self.assertEqual(proc.returncode, 0)
         self.assertEqual(proc.stdout.strip(), "0.0.0")
 
-    def test_adopt_not_implemented(self):
-        proc = self.run_module("adopt", "audit")
+    def test_adopt_missing_root_fails(self):
+        missing = os.path.join(tempfile.gettempdir(), "dc-no-such-dir-for-adopt-test")
+        proc = self.run_module("adopt", "plan", "--root", missing, "--commit", "0" * 40)
         self.assertEqual(proc.returncode, 2)
-        self.assertIn("not implemented", proc.stderr)
+        self.assertIn("root is not a directory", proc.stderr)
 
     def test_unknown_command(self):
         proc = self.run_module("frobnicate")

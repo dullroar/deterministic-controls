@@ -1,6 +1,6 @@
 ---
 id: b08-adoption-tools
-status: pending
+status: done
 depends_on: [b03-self-ci]
 touches:
   - tests/test_cli.py
@@ -11,9 +11,9 @@ touches:
   - plans/bootstrap/steps/b08-adoption-tools.md
 lane: none
 gate: python3 -m unittest discover -s tests -p 'test_adopt.py' -v && python3 -m unittest discover -s tests -v && python3 scripts/secret_guard.py --tracked && python3 scripts/check_context.py && git diff --check
-claimed_by: ""
-claimed_at: ""
-evidence: ""
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:26:45Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Build the adoption tools: `adopt audit`, `plan`, `apply` and `receipt`
@@ -71,4 +71,6 @@ The seed missed one file. b01 left a placeholder test, `test_adopt_not_implement
 
 ## Resume notes
 
-(none)
+The step is done. The old blocker is fixed: `tests/test_cli.py` now has `test_adopt_missing_root_fails` in place of the obsolete placeholder test. It runs `adopt plan` with a missing root and expects exit 2 and "root is not a directory".
+
+Also, the shim test `test_old_output_lines_and_exit_zero` now enables only the checks that its fixture can pass. The catalog grew in b04 to b07, and the fixture has no generated indexes.
