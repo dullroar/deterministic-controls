@@ -1,0 +1,10 @@
+id = "markdown.required-headings"
+summary = "Markdown files that match a glob have the required headings, at the given level and in the given order. It is generic: it reads only Markdown headings and a list of rules, so it fits any Markdown repository."
+version = "1"
+status = "advisory"
+severity = "error"
+module = "deterministic_controls.checks.markdown_required_headings"
+entry = "entry"
+
+[parameters]
+rules = []

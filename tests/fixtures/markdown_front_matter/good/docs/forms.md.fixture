@@ -1,0 +1,9 @@
+---
+# a comment line
+
+title: "Quoted title"
+status: [draft, final]
+tags: [a, b]
+---
+
+Text.
