@@ -7,9 +7,9 @@ touches:
 lane: none
 tier: light
 gate: rm -rf "${TMPDIR:-/tmp}/controls-b11" && git clone -q . "${TMPDIR:-/tmp}/controls-b11" && cd "${TMPDIR:-/tmp}/controls-b11" && bash scripts/release_check.sh && python3 scripts/secret_guard.py --tracked
-claimed_by: ""
-claimed_at: ""
-evidence: "Gate (clean clone, bash scripts/release_check.sh, then python3 scripts/secret_guard.py --tracked): passed, 196 tests OK, 0 findings. 2026-11-23."
+claimed_by: claude cli-default
+claimed_at: "2026-11-24T01:34:12Z"
+evidence: gate passed 2026-11-24 (driver-verified)
 ---
 
 # Verify everything from a clean clone
